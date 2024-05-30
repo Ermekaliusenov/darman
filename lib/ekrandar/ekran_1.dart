@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class Ekran1 extends StatefulWidget {
@@ -9,6 +11,15 @@ class Ekran1 extends StatefulWidget {
 }
 
 class _Ekran1State extends State<Ekran1> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    // Handle the navigation or any other action based on the selected index
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,12 +139,67 @@ class _Ekran1State extends State<Ekran1> {
                       height: 136,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        color: Color(0xffefb4b4),
+                        color: const Color(0xffefb4b4),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image.asset('assets/emb/foto1.png'),
+                          const Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                                child: Text(
+                                  'Баш орууга',
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                              ),
+                              Text('каршы даары',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                  )),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 9, 70, 0),
+                                child: Text(
+                                  '-20%',
+                                  style: TextStyle(
+                                      color: Color(0xffbee360), fontSize: 15),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 10, 32, 0),
+                                child: Text('Баасы:',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      color: Color(0xffea3118),
+                                      fontSize: 20,
+                                    )),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                            child: Column(
+                              children: [
+                                Image.asset('assets/emb/neman.png'),
+                                const Text(
+                                  'Неман Фарм',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: Icon(
+                              Platform.isAndroid
+                                  ? Icons.favorite_border
+                                  : Icons.abc,
+                              size: 40,
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -143,6 +209,45 @@ class _Ekran1State extends State<Ekran1> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              color: Colors.black,
+              size: 30,
+            ),
+            label: 'Уй',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 30,
+            ),
+            label: 'Издоо',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite_border,
+              color: Colors.black,
+              size: 30,
+            ),
+            label: 'Сактоолор',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.shopping_cart_outlined,
+              color: Colors.black,
+              size: 30,
+            ),
+            label: 'Себет',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Color(0xffefb4b4),
+        onTap: _onItemTapped,
       ),
     );
   }
