@@ -17,8 +17,8 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
         ],
-        backgroundColor: const Color(0xffbee356),
-        title: const Text('Башкы бет'),
+        backgroundColor: Color.fromARGB(255, 138, 140, 181),
+        title: const Text('Издоо'),
         centerTitle: true,
       ),
       drawer: const Drawer(),
@@ -29,7 +29,7 @@ class SearchScreen extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                color: const Color(0xffefb4b4),
+                color: Color.fromARGB(255, 205, 183, 198),
               ),
               width: double.infinity,
               height: 50,

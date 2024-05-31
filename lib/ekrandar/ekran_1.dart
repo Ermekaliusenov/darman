@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:darman/ekrandar/ekran_2.dart';
 import 'package:flutter/material.dart';
 
 class Ekran1 extends StatefulWidget {
@@ -12,22 +11,6 @@ class Ekran1 extends StatefulWidget {
 }
 
 class _Ekran1State extends State<Ekran1> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    if (index == 1) {
-      // Индекс для экрана поиска
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SearchScreen()),
-      );
-    } else {
-      setState(() {
-        _selectedIndex = index;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +27,7 @@ class _Ekran1State extends State<Ekran1> {
             ),
           ),
         ],
-        backgroundColor: const Color(0xffbee356),
+        backgroundColor: Color.fromARGB(255, 138, 140, 181),
         title: const Text('Башкы бет'),
         centerTitle: true,
       ),
@@ -56,7 +39,7 @@ class _Ekran1State extends State<Ekran1> {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                color: const Color(0xffefb4b4),
+                color: Color.fromARGB(255, 205, 183, 198),
               ),
               width: double.infinity,
               height: 50,
@@ -80,7 +63,7 @@ class _Ekran1State extends State<Ekran1> {
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: const Color(0xffefb4b4),
+                      color: Color.fromARGB(255, 205, 183, 198),
                     ),
                     child: Column(
                       children: [
@@ -107,7 +90,7 @@ class _Ekran1State extends State<Ekran1> {
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: const Color(0xffefb4b4),
+                      color: Color.fromARGB(255, 205, 183, 198),
                     ),
                     child: Column(
                       children: [
@@ -131,7 +114,7 @@ class _Ekran1State extends State<Ekran1> {
             const Text(
               'Арзан жеткиликтуу даарылар',
               style: TextStyle(
-                color: Color(0xffea3118),
+                color: Color.fromARGB(255, 148, 107, 102),
                 fontSize: 17,
                 fontWeight: FontWeight.w700,
               ),
@@ -149,7 +132,7 @@ class _Ekran1State extends State<Ekran1> {
                       height: 136,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        color: const Color(0xffefb4b4),
+                        color: Color.fromARGB(255, 205, 183, 198),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -227,46 +210,6 @@ class _Ekran1State extends State<Ekran1> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              color: Colors.black,
-              size: 30,
-            ),
-            label: 'Уй',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: Colors.black,
-              size: 30,
-            ),
-            label: 'Издоо',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite_border,
-              color: Colors.black,
-              size: 30,
-            ),
-            label: 'Сактоолор',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.black,
-              size: 30,
-            ),
-            label: 'Себет',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xffefb4b4),
-        unselectedItemColor: Colors.black,
-        onTap: _onItemTapped,
       ),
     );
   }

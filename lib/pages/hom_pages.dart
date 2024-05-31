@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:darman/ekrandar/ekran_1.dart';
+import 'package:darman/ekrandar/home.dart';
 import 'package:flutter/material.dart';
 
 class HomPages extends StatefulWidget {
@@ -24,7 +24,7 @@ class _HomPagesState extends State<HomPages> {
       const Duration(seconds: 4),
     );
     return Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const Ekran1()));
+        context, MaterialPageRoute(builder: (context) => const Home()));
   }
 
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _HomPagesState extends State<HomPages> {
             Image.asset('assets/emb/darman.png'),
             // ignore: prefer_const_constructors
             Padding(
-              padding: const EdgeInsets.only(left: 142),
+              padding: const EdgeInsets.only(left: 142, top: 5),
               child: const Text(
                 'Сиздин капчык даарыкананыз',
                 style: TextStyle(
