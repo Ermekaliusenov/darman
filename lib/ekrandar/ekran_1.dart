@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:darman/ekrandar/ekran_2.dart';
 import 'package:flutter/material.dart';
 
 class Ekran1 extends StatefulWidget {
@@ -14,10 +15,17 @@ class _Ekran1State extends State<Ekran1> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    // Handle the navigation or any other action based on the selected index
+    if (index == 1) {
+      // Индекс для экрана поиска
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SearchScreen()),
+      );
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
   }
 
   @override
@@ -25,7 +33,6 @@ class _Ekran1State extends State<Ekran1> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          // ignore: avoid_unnecessary_containers
           SizedBox(
             height: 100,
             width: 120,
@@ -51,18 +58,18 @@ class _Ekran1State extends State<Ekran1> {
                 borderRadius: BorderRadius.circular(25),
                 color: const Color(0xffefb4b4),
               ),
-              // ignore: sort_child_properties_last
+              width: double.infinity,
+              height: 50,
               child: Padding(
                 padding: const EdgeInsets.only(left: 330),
                 child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.search,
-                      size: 40,
-                    )),
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.search,
+                    size: 40,
+                  ),
+                ),
               ),
-              width: double.infinity,
-              height: 50,
             ),
             Row(
               children: [
@@ -72,8 +79,9 @@ class _Ekran1State extends State<Ekran1> {
                     width: 150,
                     height: 150,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: const Color(0xffefb4b4)),
+                      borderRadius: BorderRadius.circular(25),
+                      color: const Color(0xffefb4b4),
+                    ),
                     child: Column(
                       children: [
                         Padding(
@@ -83,23 +91,24 @@ class _Ekran1State extends State<Ekran1> {
                         const Text(
                           'Оорулар',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w700),
-                        )
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 60,
-                ),
+                const SizedBox(width: 60),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     width: 150,
                     height: 150,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: const Color(0xffefb4b4)),
+                      borderRadius: BorderRadius.circular(25),
+                      color: const Color(0xffefb4b4),
+                    ),
                     child: Column(
                       children: [
                         Padding(
@@ -109,22 +118,23 @@ class _Ekran1State extends State<Ekran1> {
                         const Text(
                           'Даарылар',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w700),
-                        )
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
             const Text(
               'Арзан жеткиликтуу даарылар',
               style: TextStyle(
-                  color: Color(
-                    0xffea3118,
-                  ),
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700),
+                color: Color(0xffea3118),
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
+              ),
             ),
             SizedBox(
               height: 450,
@@ -146,6 +156,7 @@ class _Ekran1State extends State<Ekran1> {
                         children: [
                           Image.asset('assets/emb/foto1.png'),
                           const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
                                 padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
@@ -154,26 +165,32 @@ class _Ekran1State extends State<Ekran1> {
                                   style: TextStyle(fontWeight: FontWeight.w700),
                                 ),
                               ),
-                              Text('каршы даары',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                  )),
+                              Text(
+                                'каршы даары',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
                               Padding(
                                 padding: EdgeInsets.fromLTRB(0, 9, 70, 0),
                                 child: Text(
                                   '-20%',
                                   style: TextStyle(
-                                      color: Color(0xffbee360), fontSize: 15),
+                                    color: Color(0xffbee360),
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                               Padding(
                                 padding: EdgeInsets.fromLTRB(0, 10, 32, 0),
-                                child: Text('Баасы:',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: Color(0xffea3118),
-                                      fontSize: 20,
-                                    )),
+                                child: Text(
+                                  'Баасы:',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xffea3118),
+                                    fontSize: 20,
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -185,8 +202,9 @@ class _Ekran1State extends State<Ekran1> {
                                 const Text(
                                   'Неман Фарм',
                                   style: TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w700),
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ],
                             ),
@@ -246,7 +264,8 @@ class _Ekran1State extends State<Ekran1> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xffefb4b4),
+        selectedItemColor: const Color(0xffefb4b4),
+        unselectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),
     );
