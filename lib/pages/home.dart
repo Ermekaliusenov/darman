@@ -5,17 +5,22 @@ import 'package:darman/ekrandar/ekran_4.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
-  List search1 = [const Ekran1(), SearchScreen(), const Ekran3(), const Ekran4()];
+  List search = [
+    const Ekran1(),
+    const SearchScreen(),
+    const Ekran3(),
+    const Ekran4()
+  ];
 
-  
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -25,7 +30,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: search1.elementAt(_selectedIndex),
+      body: search.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
@@ -34,7 +39,7 @@ class _HomeState extends State<Home> {
               color: Colors.black,
               size: 30,
             ),
-            label: 'Уй',
+            label: 'Башкы бет',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -62,8 +67,8 @@ class _HomeState extends State<Home> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color.fromARGB(255, 22, 15, 15),
-        unselectedItemColor: Colors.black,
+        selectedItemColor: Color.fromARGB(255, 236, 20, 20),
+        unselectedItemColor: Colors.amber,
         onTap: _onItemTapped,
       ),
     );

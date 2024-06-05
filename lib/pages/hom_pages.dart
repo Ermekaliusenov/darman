@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:darman/ekrandar/home.dart';
+import 'package:darman/pages/home.dart';
 import 'package:flutter/material.dart';
 
 class HomPages extends StatefulWidget {
@@ -24,9 +24,11 @@ class _HomPagesState extends State<HomPages> {
       const Duration(seconds: 4),
     );
     return Navigator.push(
+        // ignore: use_build_context_synchronously
         context, MaterialPageRoute(builder: (context) => const Home()));
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Ekran3 extends StatefulWidget {
-  const Ekran3({ Key? key }) : super(key: key);
+  const Ekran3({ super.key });
 
   @override
+  // ignore: library_private_types_in_public_api
   _Ekran3State createState() => _Ekran3State();
 }
 
@@ -24,11 +25,69 @@ class _Ekran3State extends State<Ekran3> {
             ),
           ),
         ],
-        backgroundColor: Color.fromARGB(255, 138, 140, 181),
+        backgroundColor: const Color.fromARGB(255, 138, 140, 181),
         title: const Text('Маалымат'),
         centerTitle: true,
       ),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 138, 140, 181),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    'assets/emb/logo.png',
+                    height: 80,
+                    width: 80,
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Меню',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Башкы бет'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('Оорулар жөнүндө'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.medication),
+              title: const Text('Даарылар жөнүндө'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.contact_mail),
+              title: const Text('Байланыш'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

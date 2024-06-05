@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:darman/modelder/1model.dart'; // Ensure this import is correct
 
 class Ekran1 extends StatefulWidget {
   const Ekran1({super.key});
@@ -27,11 +28,74 @@ class _Ekran1State extends State<Ekran1> {
             ),
           ),
         ],
-        backgroundColor: Color.fromARGB(255, 138, 140, 181),
+        backgroundColor: const Color.fromARGB(255, 138, 140, 181),
         title: const Text('Башкы бет'),
         centerTitle: true,
       ),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 138, 140, 181),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Image.asset(
+                  //   'assets/emb/logo.png',
+                  //   height: 80,
+                  //   width: 210,
+                  //   fit: BoxFit.cover,
+                  // ),
+                  SizedBox(height: 95),
+                  Text(
+                    'Меню',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Башкы бет'),
+              onTap: () {
+                // Navigate to home
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.local_hospital),
+              title: const Text('Оорулар'),
+              onTap: () {
+                // Navigate to Oorular page
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.medical_services),
+              title: const Text('Даарылар'),
+              onTap: () {
+                // Navigate to Darylar page
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Ондоо'),
+              onTap: () {
+                // Navigate to Settings page
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -39,7 +103,7 @@ class _Ekran1State extends State<Ekran1> {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                color: Color.fromARGB(255, 205, 183, 198),
+                color: const Color.fromARGB(255, 205, 183, 198),
               ),
               width: double.infinity,
               height: 50,
@@ -63,7 +127,7 @@ class _Ekran1State extends State<Ekran1> {
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color.fromARGB(255, 205, 183, 198),
+                      color: const Color.fromARGB(255, 205, 183, 198),
                     ),
                     child: Column(
                       children: [
@@ -90,7 +154,7 @@ class _Ekran1State extends State<Ekran1> {
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color.fromARGB(255, 205, 183, 198),
+                      color: const Color.fromARGB(255, 205, 183, 198),
                     ),
                     child: Column(
                       children: [
@@ -123,8 +187,9 @@ class _Ekran1State extends State<Ekran1> {
               height: 450,
               width: double.infinity,
               child: ListView.builder(
-                itemCount: 10, // Total number of items
+                itemCount: continents.length, // Total number of items
                 itemBuilder: (context, index) {
+                  final item = continents[index];
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
@@ -132,39 +197,41 @@ class _Ekran1State extends State<Ekran1> {
                       height: 136,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        color: Color.fromARGB(255, 205, 183, 198),
+                        color: const Color.fromARGB(255, 205, 183, 198),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset('assets/emb/foto1.png'),
-                          const Column(
+                          Image.asset('assets/emb/${item.image}.png'),
+                          Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                                padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                                 child: Text(
-                                  'Баш орууга',
-                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                  item.text,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
-                              Text(
+                              const Text(
                                 'каршы даары',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(0, 9, 70, 0),
+                                padding: const EdgeInsets.fromLTRB(0, 9, 70, 0),
                                 child: Text(
-                                  '-20%',
-                                  style: TextStyle(
+                                  item.procend,
+                                  style: const TextStyle(
                                     color: Color(0xffbee360),
                                     fontSize: 15,
                                   ),
                                 ),
                               ),
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.fromLTRB(0, 10, 32, 0),
                                 child: Text(
                                   'Баасы:',
@@ -181,7 +248,7 @@ class _Ekran1State extends State<Ekran1> {
                             padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                             child: Column(
                               children: [
-                                Image.asset('assets/emb/neman.png'),
+                                Image.asset('assets/emb/${item.emblemb}.png'),
                                 const Text(
                                   'Неман Фарм',
                                   style: TextStyle(
