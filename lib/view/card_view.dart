@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Ekran4 extends StatefulWidget {
-  const Ekran4({super.key});
+class Ekran3 extends StatefulWidget {
+  const Ekran3({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _Ekran4State createState() => _Ekran4State();
+  _Ekran3State createState() => _Ekran3State();
 }
 
-class _Ekran4State extends State<Ekran4> {
+class _Ekran3State extends State<Ekran3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class _Ekran4State extends State<Ekran4> {
           ),
         ],
         backgroundColor: const Color.fromARGB(255, 138, 140, 181),
-        title: const Text('Себет'),
+        title: const Text('Маалыматтар'),
         centerTitle: true,
       ),
       drawer: Drawer(

@@ -1,7 +1,9 @@
-import 'package:darman/ekrandar/ekran_1.dart';
-import 'package:darman/ekrandar/ekran_2.dart';
-import 'package:darman/ekrandar/ekran_3.dart';
-import 'package:darman/ekrandar/ekran_4.dart';
+// import 'package:darman/view/.dart';
+import 'package:darman/view/profil_view.dart';
+import 'package:darman/view/home_view.dart';
+import 'package:darman/view/search_view.dart';
+import 'package:darman/view/card_view.dart';
+// import 'package:darman/view/.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -51,7 +53,7 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.favorite_border,
+              Icons.shopping_cart_outlined,
               color: Colors.black,
               size: 30,
             ),
@@ -59,15 +61,15 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.shopping_cart_outlined,
+              Icons.person_outline_outlined,
               color: Colors.black,
               size: 30,
             ),
-            label: 'Себет',
+            label: 'Жеке болум',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color.fromARGB(255, 236, 20, 20),
+        selectedItemColor: const Color.fromARGB(255, 236, 20, 20),
         unselectedItemColor: Colors.amber,
         onTap: _onItemTapped,
       ),

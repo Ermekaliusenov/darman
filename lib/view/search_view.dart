@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Ekran3 extends StatefulWidget {
-  const Ekran3({ super.key });
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
 
-  @override
-  // ignore: library_private_types_in_public_api
-  _Ekran3State createState() => _Ekran3State();
-}
-
-class _Ekran3State extends State<Ekran3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +20,7 @@ class _Ekran3State extends State<Ekran3> {
           ),
         ],
         backgroundColor: const Color.fromARGB(255, 138, 140, 181),
-        title: const Text('Маалымат'),
+        title: const Text('Издоо'),
         centerTitle: true,
       ),
       drawer: Drawer(
@@ -88,6 +82,60 @@ class _Ekran3State extends State<Ekran3> {
           ],
         ),
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            SearchBar(
+               
+              leading: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.search),
+              ),
+            )
+          ],
+        ),
+      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: const [
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.home_outlined,
+      //         color: Colors.black,
+      //         size: 30,
+      //       ),
+      //       label: 'Уй',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.search,
+      //         color: Colors.black,
+      //         size: 30,
+      //       ),
+      //       label: 'Издоо',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.favorite_border,
+      //         color: Colors.black,
+      //         size: 30,
+      //       ),
+      //       label: 'Сактоолор',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.shopping_cart_outlined,
+      //         color: Colors.black,
+      //         size: 30,
+      //       ),
+      //       label: 'Себет',
+      //     ),
+      //   ],
+      //   currentIndex: _selectedIndex,
+      //   selectedItemColor: const Color(0xffefb4b4),
+      //   unselectedItemColor: Colors.black,
+      //   onTap: _onItemTapped,
+      // ),
     );
   }
 }

@@ -1,7 +1,8 @@
 import 'dart:io';
 
+
 import 'package:flutter/material.dart';
-import 'package:darman/modelder/1model.dart'; // Ensure this import is correct
+import 'package:darman/modelder/1model.dart';
 
 class Ekran1 extends StatefulWidget {
   const Ekran1({super.key});
@@ -100,23 +101,9 @@ class _Ekran1State extends State<Ekran1> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                color: const Color.fromARGB(255, 205, 183, 198),
-              ),
-              width: double.infinity,
-              height: 50,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 330),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.search,
-                    size: 40,
-                  ),
-                ),
-              ),
+            SearchBar(
+              leading:
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
             ),
             Row(
               children: [
@@ -183,97 +170,118 @@ class _Ekran1State extends State<Ekran1> {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(
-              height: 450,
-              width: double.infinity,
-              child: ListView.builder(
-                itemCount: continents.length, // Total number of items
-                itemBuilder: (context, index) {
-                  final item = continents[index];
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: 100,
-                      height: 136,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: const Color.fromARGB(255, 205, 183, 198),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset('assets/emb/${item.image}.png'),
-                          Column(
+            Expanded(
+              child: Stack(children: [
+                SizedBox(
+                  height: 450,
+                  width: double.infinity,
+                  child: ListView.builder(
+                    itemCount: continents.length, // Total number of items
+                    itemBuilder: (context, index) {
+                      final item = continents[index];
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: 100,
+                          height: 134,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            color: const Color.fromARGB(255, 205, 183, 198),
+                          ),
+                          child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-                                child: Text(
-                                  item.text,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w700,
+                              Image.asset('assets/emb/${item.image}.png'),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                                    child: Text(
+                                      item.text,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  const Text(
+                                    'каршы даары',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 9, 70, 0),
+                                    child: Text(
+                                      item.procend,
+                                      style: const TextStyle(
+                                        color: Color(0xffbee360),
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.fromLTRB(0, 10, 32, 0),
+                                    child: Text(
+                                      'Баасы:',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        color: Color(0xffea3118),
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              const Text(
-                                'каршы даары',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w700,
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                        'assets/emb/${item.emblemb}.png'),
+                                    const Text(
+                                      'Неман Фарм',
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 15),
+                                    const Padding(
+                                      padding: EdgeInsets.fromLTRB(
+                                          0, 0, 20, 0),
+                                      child: Text(
+                                        '315 сом',
+                                        style: TextStyle(
+                                            color: Color(0xffea3118),
+                                            fontWeight: FontWeight.w700),
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 9, 70, 0),
-                                child: Text(
-                                  item.procend,
-                                  style: const TextStyle(
-                                    color: Color(0xffbee360),
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.fromLTRB(0, 10, 32, 0),
-                                child: Text(
-                                  'Баасы:',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    color: Color(0xffea3118),
-                                    fontSize: 20,
+                                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Icon(
+                                    Platform.isAndroid
+                                        ? Icons.favorite_border
+                                        : Icons.abc,
+                                    size: 40,
                                   ),
                                 ),
                               ),
                             ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                            child: Column(
-                              children: [
-                                Image.asset('assets/emb/${item.emblemb}.png'),
-                                const Text(
-                                  'Неман Фарм',
-                                  style: TextStyle(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: Icon(
-                              Platform.isAndroid
-                                  ? Icons.favorite_border
-                                  : Icons.abc,
-                              size: 40,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ]),
             ),
           ],
         ),
