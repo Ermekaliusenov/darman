@@ -34,11 +34,12 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: search.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        // backgroundColor: const Color.fromARGB(255, 138, 140, 181),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home_outlined,
-              color: Colors.black,
+              color: Color.fromARGB(255, 138, 140, 181),
               size: 30,
             ),
             label: 'Башкы бет',
@@ -46,7 +47,7 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
-              color: Colors.black,
+              color: Color.fromARGB(255, 138, 140, 181),
               size: 30,
             ),
             label: 'Издоо',
@@ -54,7 +55,7 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart_outlined,
-              color: Colors.black,
+              color: Color.fromARGB(255, 138, 140, 181),
               size: 30,
             ),
             label: 'Сактоолор',
@@ -62,14 +63,15 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person_outline_outlined,
-              color: Colors.black,
+              color: Color.fromARGB(255, 138, 140, 181),
               size: 30,
             ),
             label: 'Жеке болум',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 236, 20, 20),
+
+        selectedItemColor: const Color.fromARGB(255, 138, 140, 181),
         unselectedItemColor: Colors.amber,
         onTap: _onItemTapped,
       ),

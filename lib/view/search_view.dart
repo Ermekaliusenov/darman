@@ -90,7 +90,7 @@ class SearchScreen extends StatelessWidget {
                
               leading: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.search),
+                icon: const Icon(Icons.search),
               ),
             )
           ],

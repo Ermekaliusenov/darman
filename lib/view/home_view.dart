@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:flutter/material.dart';
 import 'package:darman/modelder/1model.dart';
 
@@ -108,14 +107,13 @@ class _Ekran1State extends State<Ekran1> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(10, 30, 0, 0),
                   child: Container(
                     width: 150,
                     height: 150,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: const Color.fromARGB(255, 205, 183, 198),
-                    ),
+                        borderRadius: BorderRadius.circular(25),
+                        color: const Color(0xff78d68c)),
                     child: Column(
                       children: [
                         Padding(
@@ -135,13 +133,13 @@ class _Ekran1State extends State<Ekran1> {
                 ),
                 const SizedBox(width: 60),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(10, 30, 0, 0),
                   child: Container(
                     width: 150,
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: const Color.fromARGB(255, 205, 183, 198),
+                      color: const Color(0xff78d68c),
                     ),
                     child: Column(
                       children: [
@@ -165,7 +163,7 @@ class _Ekran1State extends State<Ekran1> {
             const Text(
               'Арзан жеткиликтуу даарылар',
               style: TextStyle(
-                color: Color.fromARGB(255, 148, 107, 102),
+                color: Colors.red,
                 fontSize: 17,
                 fontWeight: FontWeight.w700,
               ),
@@ -186,7 +184,7 @@ class _Ekran1State extends State<Ekran1> {
                           height: 134,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
-                            color: const Color.fromARGB(255, 205, 183, 198),
+                            color: const Color.fromARGB(255, 225, 226, 225),
                           ),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -217,7 +215,8 @@ class _Ekran1State extends State<Ekran1> {
                                     child: Text(
                                       item.procend,
                                       style: const TextStyle(
-                                        color: Color(0xffbee360),
+                                        color:
+                                            Color.fromARGB(255, 105, 187, 108),
                                         fontSize: 15,
                                       ),
                                     ),
@@ -249,13 +248,14 @@ class _Ekran1State extends State<Ekran1> {
                                       ),
                                     ),
                                     const SizedBox(height: 15),
-                                    const Padding(
-                                      padding: EdgeInsets.fromLTRB(
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
                                           0, 0, 20, 0),
                                       child: Text(
-                                        '315 сом',
-                                        style: TextStyle(
-                                            color: Color(0xffea3118),
+                                        item.baasy,
+                                        style: const TextStyle(
+                                            color:
+                                                Color.fromARGB(255, 11, 11, 10),
                                             fontWeight: FontWeight.w700),
                                       ),
                                     )
